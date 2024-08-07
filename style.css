@@ -2,6 +2,7 @@
 
 :root{
 --Lime: hsl(61, 70%, 52%);
+--Lime2: hsla(61, 70%, 52%, 0.555);
 --Red: hsl(4, 69%, 50%);
 --White: hsl(0, 0%, 100%);
 --Slate-100: hsl(202, 86%, 94%);
@@ -61,9 +62,11 @@ body{
     justify-content: space-between;
     align-items: center;
 }
+ 
 
-.left-heading span{
+.left-heading span:hover{
     text-decoration: underline;
+    cursor: pointer;
 }
 
 
@@ -104,6 +107,7 @@ body{
 
 .right-result-container{
     padding-bottom: 10%;
+    display: none;
 }
 .right-result-container h1{
     color: var(--Lime);
@@ -127,11 +131,23 @@ body{
     /* max-height: 30px */
     border: 1px solid var(--Slate-300);
 }
+
+input[type="text"]:hover{
+    cursor: pointer !important;
+}
+.form-inner:hover{
+    border: 1px solid var(--Slate-900); 
+}
+
+.form-radio:hover{
+    border: 1px solid var(--Lime);
+}
+
 .form-inner input{
     width: 90%;
     padding: 10px 8px;
 }
-.form-inner, .form-inner input:focus, input::after, input::before, .form-radio input{
+.form-inner input, .form-inner input:focus, input::after, input::before, .form-radio input{
     box-shadow: none;
     border: none;
     outline: none;
@@ -175,10 +191,10 @@ body{
     padding: 10px 0;
     margin-top: 1rem;
 }
-.form-radio:hover{
+/* .radio{
     background-color: #d6db2b;
     outline: 1px solid var(--Slate-900);
-}
+} */
 input[type="checkbox"], input[type="radio"]{
     accent-color: var(--Lime);
     /* appearance: none */
@@ -197,9 +213,35 @@ button{
     align-items: center;
     background-color: var(--Lime);
     border: none;
+    margin: 1rem 0;
+    cursor: pointer;
+}
+button:hover{
+    background-color: var(--Lime2);
 }
 /* Medium */
 
+.form-inner.error{
+    border: 1px solid var(--Red) !important;
+}
+
+.form-inner.error span{
+    background-color: var(--Red);
+    color: white;
+}
+.form-inner small{
+    visibility: hidden;
+}
+
+
+.form-inner.error small{
+    visibility: visible;
+}
+
+
+small{
+    color: var(--Red);
+}
 
 /* Mobile */
 @media (max-width: 900px){
